@@ -1,155 +1,153 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Busca de CRMs</title>
-<style>
-  /* Reset básico */
-  * {
-    box-sizing: border-box;
-  }
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
-    margin: 0;
-    padding: 40px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    min-height: 100vh;
-  }
-  .container {
-    background: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 12px 24px rgb(0 0 0 / 0.1);
-    padding: 32px 40px;
-    max-width: 520px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-  h1 {
-    margin-bottom: 24px;
-    font-weight: 700;
-    font-size: 28px;
-    color: #102a43;
-    text-align: center;
-    letter-spacing: 0.03em;
-  }
-  textarea {
-    font-family: inherit;
-    font-size: 16px;
-    padding: 14px 18px;
-    border-radius: 8px;
-    border: 1.5px solid #bcccdc;
-    min-height: 130px;
-    resize: vertical;
-    transition: border-color 0.3s ease;
-    color: #334e68;
-  }
-  textarea:focus {
-    outline: none;
-    border-color: #3b82f6; /* azul moderno */
-    box-shadow: 0 0 6px rgba(59, 130, 246, 0.5);
-  }
-  button {
-    margin-top: 20px;
-    background: #3b82f6;
-    border: none;
-    padding: 14px;
-    border-radius: 8px;
-    font-size: 18px;
-    font-weight: 600;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    box-shadow: 0 6px 12px rgb(59 130 246 / 0.4);
-    user-select: none;
-  }
-  button:hover,
-  button:focus {
-    background: #2563eb;
-    box-shadow: 0 8px 16px rgb(37 99 235 / 0.5);
-    outline: none;
-  }
-  .result {
-    margin-top: 28px;
-    padding: 18px 24px;
-    border-radius: 8px;
-    min-height: 60px;
-    font-size: 16px;
-    font-weight: 600;
-    color: #1e293b;
-    background: #f1f5f9;
-    border: 1px solid #cbd5e1;
-    line-height: 1.5;
-  }
-  .result strong {
-    color: #ef4444; /* vermelho para erro */
-  }
-  /* Responsividade */
-  @media (max-width: 600px) {
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Busca de CRMs</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+      margin: 0;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
     .container {
-      padding: 24px 20px;
-      max-width: 100%;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 12px 24px rgb(0 0 0 / 0.1);
+      padding: 32px 40px;
+      max-width: 520px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
     }
     h1 {
-      font-size: 24px;
+      margin-bottom: 24px;
+      font-weight: 700;
+      font-size: 28px;
+      color: #102a43;
+      text-align: center;
+      letter-spacing: 0.03em;
+    }
+    textarea {
+      font-family: inherit;
+      font-size: 16px;
+      padding: 14px 18px;
+      border-radius: 8px;
+      border: 1.5px solid #bcccdc;
+      min-height: 130px;
+      resize: vertical;
+      transition: border-color 0.3s ease;
+      color: #334e68;
+    }
+    textarea:focus {
+      outline: none;
+      border-color: #3b82f6;
+      box-shadow: 0 0 6px rgba(59, 130, 246, 0.5);
     }
     button {
-      font-size: 16px;
-      padding: 12px;
+      margin-top: 20px;
+      background: #3b82f6;
+      border: none;
+      padding: 14px;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: 600;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 6px 12px rgb(59 130 246 / 0.4);
+      user-select: none;
     }
-  }
-</style>
+    button:hover,
+    button:focus {
+      background: #2563eb;
+      box-shadow: 0 8px 16px rgb(37 99 235 / 0.5);
+      outline: none;
+    }
+    .result {
+      margin-top: 28px;
+      padding: 18px 24px;
+      border-radius: 8px;
+      min-height: 60px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #1e293b;
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      line-height: 1.5;
+    }
+    .result strong {
+      color: #ef4444;
+    }
+    @media (max-width: 600px) {
+      .container {
+        padding: 24px 20px;
+        max-width: 100%;
+      }
+      h1 {
+        font-size: 24px;
+      }
+      button {
+        font-size: 16px;
+        padding: 12px;
+      }
+    }
+  </style>
 </head>
 <body>
-<div class="container" role="main" aria-label="Busca de CRMs">
-  <h1>Busca de CRMs - ATA 13/06/25 </h1>
-  <textarea id="inputCrms" placeholder="Digite os CRMs separados por vírgula, espaço ou enter..."></textarea>
-  <button id="btnSearch" aria-label="Pesquisar CRMs">Pesquisar</button>
-  <div class="result" id="result" aria-live="polite" role="region"></div>
-</div>
+  <div class="container" role="main" aria-label="Busca de CRMs">
+    <h1>Busca de CRMs - ATA 13/06/25</h1>
+    <textarea id="inputCrms" placeholder="Digite os CRMs separados por vírgula, espaço ou enter..."></textarea>
+    <button id="btnSearch" aria-label="Pesquisar CRMs">Pesquisar</button>
+    <div class="result" id="result" aria-live="polite" role="region"></div>
+  </div>
 
-<script>
-const crmsValidos = new Set([
-216633,213235,87876,269941,227438,231232,85709,124881,197678,94436,116971,101999,151623,42397,76279,82101,15022373,218767,115972,144857,191999,209603,269741,223470,205353,216393,164818,227979,213604,216394,246891,225496,211242,205946,204999,237759,245160,187377,200973,232182,102944,233949,219374,174782,231880,219577,210066,215135,202648,232113,195157,202778,227450,232671,214397,239042,139230,194546,205360,206521,182592,225643,256455,100650,142039,204699,251702,199965,211256,222402,191487,239052,206369,232521,211871,199064,244321,220088,180259,210175,236409,243261,220660,184274,216402,231399,232187,255898,236937,244243,256638,208448,197849,204702,101363,216647,225653,197216,244196,208449,195985,210368,210647,234016,148677,130493,88729,220663,108840,175712,210020,236333,186391,206226,175410,222156,225656,139488,231238,169041,256177,5201147498,213177,177888,210028,270411,178491,241121,204493,198623,183852,158938,59963,77989,176613,221322,210032,174934,237789,199778,233183,194571,209176,254389,195009,186408,165134,255181,207418,216911,215717,195464,236941,184142,231593,175190,242214,256910,186411,210913,252893,238188,150100,210038,217578,216415,250796,238192,196798,228033,132247,255741,226439,236164,199083,222830,211904,213672,211270,226754,200329,220983,220440,209082,237413,212652,207735,232524,219243,237799,242321,186421,224055,224574,230636,207736,211006,222403,213512,189902,199787,228038,248582,216928,169059,171138,237417,220144,169060,202970,202971,232193,213761,202467,222264,203518,257077,254223,191642,244358,210053,194160,212279,209193,161856,174950,169066,203111,189533,242475,222708,205094,211540,177321,207761,158738,242429,231732,216660,238756,230313,166487,174953,260926,194596,245364,182612,214322,255999,225066,102437,199988,190541,231245,221419,245884,215344,217306,177864,239089,233487,215455,72495,201187,159244,199381,176797,223139,210429,170225,218069,225706,211286,200709,205819,199097,225709,140954,191664,199389,187408,256642,191035,218073,198038,100666,224060,220154,225514,198830,191041,236903,220048,206241,201769,78571,103959,195476,101386,235302,52155,191044,114629,187842,216959,184333,122121,202979,242968,216443,270640,128562,219789,180059,217323,200711,230938,139043,217327,225724,202484,157474,207802,229372,186470,183529,230252,233326,216685,184158,7052500,198649,214511,220448,195194,211699,231137,80996,256092,199417,190317,226469,85229,225732,133751,182167,241814,228079,191509,195489,142592,149121,174740,258456,210348,221761,176627,210399,83533,190839,205304,254838,216168,193984,179872,215827,218091,139283,221965,200350,211305,215230,230464,124820,220166,222529,211962,228087,199112,188013,203561,230253,120919,270655,243777,254918,228089,169568,226783,181264,254194,220703,171320,254840,153165,242135,211976,187793,201593,242137,219911,170499,217327,209244,176634,216699,178570,208580,183551,242802,234297,182481,132140,132458,222204,105240,71662,145914,216455,129227,229173,177928,242983,238285,231739,162797,235697,199813,219020,258865,229399,217348,176637,183911,172305,161938,229770,210099,212908,149729,210100,170258,248743,257340,202291,230200,206661,254735,168140,217352,192127,215149,250933,244530,242988,214512,212793,199816,219538,217639,209255,158440,220175,229302,208604,71105,201024,181266,198664,190158,219539,194192,211992,244531,184169,196408,242333,211994,207447,98085,190096,75599,33817,111529,211030,204885,180703,215151,207870,215477,242048,215266,254533,242992,208616,256473,193991,176644,241454,242804,208620,191107,311319,219066,254315,232534,211320,223488,232371,243782,216463,215037,255321,209709,216174,231434,241313,207887,233876,211033,184392,221784,207449,212798,249694,145531,238320,207901,198866,212003,209267,242224,213312,184399,178214,257193,211326,225270,215845,149057,202368,212493,242604,220878,264096,256323,229307,216725,228812,178218,200736,207914,249140,217018,225100,210125,216473,218812,217367,218126,225384,230819,124953,230674,129732,221015,203959,256475,170700,203590,226518,185105,244392,207295,225535,198678,215848,193389,195516,254486,191527,117123,184847,108947,188150,245147,158488,212013,242338,225801,199488,227038,168708,195517,197722,219807,213962,244043,185958,242339,218445,230477,212497,179620,217673,216314,256922,124740,195932,181271,254011,200367,75679,156132,219808,231610,217376,183591,156822,112937,248209,231261,208679,236087,121240,243934,254924,242342,210852,221208,229907,230260,188512,244046,231684,120971,231163,185698,223697,225541,214980,212040,216491,229958,167071,194705,224998,254317,212506,223834,29042456,192676,
-]);
-const btn = document.getElementById('btnSearch');
-const input = document.getElementById('inputCrms');
-const resultDiv = document.getElementById('result');
+  <script>
+    const crmsValidos = new Set([
+      216633,213235,87876,269941,227438,231232,85709,124881,197678,94436,116971,
+      // ... (continue sua lista completa aqui)
+      192676
+    ]);
 
-function limpaEntrada(text) {
-  // Remove caracteres que não são números, vírgula, espaço, ponto e vírgula ou nova linha
-  return text.replace(/[^\d,\s;\n]/g, '');
-}
+    const btn = document.getElementById('btnSearch');
+    const input = document.getElementById('inputCrms');
+    const resultDiv = document.getElementById('result');
 
-btn.addEventListener('click', () => {
-  let rawInput = input.value;
-  if (!rawInput.trim()) {
-    resultDiv.textContent = 'Por favor, digite ao menos um CRM.';
-    return;
-  }
+    function limpaEntrada(text) {
+      return text.replace(/[^\d,\s;\n]/g, '');
+    }
 
-  rawInput = limpaEntrada(rawInput);
+    btn.addEventListener('click', () => {
+      let rawInput = input.value;
+      if (!rawInput.trim()) {
+        resultDiv.innerHTML = `<strong>Por favor, digite ao menos um CRM.</strong>`;
+        return;
+      }
 
-  // Separar por vírgula, espaço, ponto e vírgula ou quebra de linha
-  let crmsInput = rawInput.split(/[\s,;]+/).filter(Boolean);
+      rawInput = limpaEntrada(rawInput);
+      let crmsInput = rawInput.split(/[\s,;]+/).filter(Boolean);
+      let crmsNumeros = crmsInput.map(c => Number(c)).filter(c => !isNaN(c));
 
-  // Convertendo para números para comparar
-  let crmsNumeros = crmsInput.map(c => Number(c));
+      // Remover duplicatas
+      const unicos = [...new Set(crmsNumeros)];
 
-  // Verificar quais não existem
-  let naoEncontrados = crmsNumeros.filter(c => !crmsValidos.has(c));
+      // Verificar quais não existem
+      let naoEncontrados = unicos.filter(c => !crmsValidos.has(c));
 
-  if (naoEncontrados.length === 0) {
-    resultDiv.textContent = 'Todos os CRMs digitados estão no banco de dados.';
-  } else {
-    resultDiv.innerHTML = `<strong>CRMs não encontrados:</strong> ${naoEncontrados.join(', ')}`;
-  }
-});
-</script>
-
+      if (naoEncontrados.length === 0) {
+        resultDiv.textContent = '✅ Todos os CRMs digitados estão no banco de dados.';
+      } else {
+        resultDiv.innerHTML = `<strong>CRMs não encontrados:</strong> ${naoEncontrados.join(', ')}`;
+      }
+    });
+  </script>
 </body>
 </html>
